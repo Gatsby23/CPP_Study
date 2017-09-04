@@ -1,16 +1,18 @@
 #include <thread>
+#include <iostream>
 
 void do_something(int &i){
 	++i;
+	std::cout << i << std::endl;
 }
 
 struct func{
-	int& i;
-	func(int& _i_):i(i_){}
+	int &i;
+	func(int &i_):i(i_){}
 
 	void operator()(){
-		for(unsigned j = 0; j < 100000; ++j)
-				do_something(i);
+		for(unsigned j = 0; j < 1000000; ++j)
+			do_something(i);
 	}
 };
 
@@ -22,7 +24,8 @@ void f(){
 	std::thread t(my_func);
 	try{
 		do_something_in_current_thread();
-	}catch(...){
+	}
+	catch(...){
 		t.join();
 		throw;
 	}
@@ -30,6 +33,6 @@ void f(){
 }
 
 int main()
-{	
+{
 	f();
 }
