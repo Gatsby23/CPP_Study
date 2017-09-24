@@ -28,4 +28,65 @@ template<typename T>class Vector{						//向量模板类
 		
 		//析构
 		~Vector(){ delete[] _elem;}						//释放内部空间
+
+		//只读访问接口
+		Rank size() const {  return _size; }			//规模
+		bool empty() const { return !_size; }			//判断非空
+		int disordered() const;							//判断向量是否排序
+}
+
+template<typename T>
+void Vector<T>::expand(){								//向量空间不足时扩容
+	if(_size < _capacity) return;						//尚未满足时，不必扩容
+	_capacity = max(_capacity, DEFAULT_CAPACITY);		//不低于最小容量
+	T* oldElem = _elem; _elem = new T[capacity <<= 1];	//容量加倍
+	for(int i = 0; i < _size; i++)						//复制向量内容
+		_elem[i] = oldElem[i];							//T为基本类型,或已重载赋值操作符"="
+	delete [] oldElem;									//释放原空间
+}
+
+template<typename T> // 0 <= r < _size
+T& Vector<T>::operator[]( Rank r) const { return _elem[r]; }
+
+template<typename T> Rank Vector<T>::insert(Rank r, T const& e){
+	expand();	//若有必要，扩容
+	for(int i = _size; i > r; i--)						//自后向前
+		_elem[i] = _elem[i - 1];						//后继元素顺次后移一个单元
+	_elem[r] = e; _size++;								//置入新元素，更新容量
+	return r;											//返回秩
+}
+
+template<typename T> int Vector<T>::remove(Rank lo, Rank hi){
+	if(lo == hi) return 0;								//处于效率考虑，单独处理退化情况
+	while(hi < _size) _elem[lo++] = _elem[hi++];		//[hi, _size)顺次前移hi-lo位
+	_size = lo; shrink();								//更新规模，有必要缩容
+	return hi - lo;										//返回被删除元素的数目
+}
+
+template<typename T>									//删除向量中秩为r的元素, 0<= r < _size
+T vector<T>::remove(Rank r){
+	T e = _elem[]r;										//备份被删除的元素
+	remove(r, r+1);										//调用区间删除算法
+	return e;											//返回被删除元素
+}
+
+template<typename T>									//0 <= lo < hi <= _size
+Rank Vector<T>::find(T const &e, Rank lo, Rank hi) const{
+	while((lo < hi--) && (e!= _elem[hi]))              //逆向查找
+	return hi;										   // hi < lo 意味着失败, 否则hi即命中元素的秩
+}
+
+template<typename T>
+int Vector<T>::deduplicate(){
+	int old_size = _size;
+	Rank i = 1;
+	while(i < _size)
+		(find(_elem[i], 0, i) < 0) ? i++ :remove(i);
+	return oldSize - _size;
+}
+
+template<typename T>
+void Vector<T>::traverse(void (*visit)(T&)){
+	for(int i = 0; i < _size; i++)
+		visit(_elem[i]);
 }
