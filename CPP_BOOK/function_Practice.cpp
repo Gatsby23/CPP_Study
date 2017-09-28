@@ -36,6 +36,7 @@ int fact(int num_);
 int my_abs(int num_);
 */
 
+/*
 #include <iostream>
 
 using namespace std;
@@ -67,4 +68,186 @@ void test_swap(){
 int main()
 {
 	test_swap();
+}
+*/
+
+//==============================================================================================
+//3.这里是对于引用参数传递理解的例子
+//----------------------------------------------------------------------------------------------
+/*
+#include <iostream>
+
+using namespace std;
+
+void reset(int &num){
+	num = 0;
+}
+
+int main()
+{
+	int number = 15;
+	cout << "Before Reset, the number is: " << number << endl;
+	reset(number);
+	cout << "After Reset, the number is: " << number << endl;
+	return 0;
+}*/
+
+//==============================================================================================
+//4.考察const对于形参的描述问题
+//----------------------------------------------------------------------------------------------
+//--1.练手:判断一个String对象中是否有大写字母
+//
+/*
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool is_captial(const string &str_word){
+	for(auto c: str_word)
+		if(isupper(c))\
+			return true;
+	return false;
+}
+
+void convert_to_Lower_case(string &str_word){
+	for(auto &c:str_word)
+		c = tolower(c);
+}
+
+int main()
+{
+	cout << "请输入一个字符串: " << endl;
+	string str;
+	cin >> str;
+	if(is_captial(str)){
+		convert_to_Lower_case(str);
+		cout << "转换后的字符串为: " << str <<endl;
+	}else
+		cout << "该字符串不含大写字母, 无需转换" << endl;
+	return 0;
+}*/
+
+//===============================================================================================
+//5.
+//-----------------------------------------------------------------------------------------------
+/*
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int the_Bigger(const int num1, const int *num2_pointer){
+	return (num1 < *num2_pointer) ? *num2_pointer : num1;
+}
+
+int main()
+{
+	int number1 = 10;
+	int number2 = 20;
+	int the_bigger_one = the_Bigger(number1, &number2);
+	cout << "The number1 is: " << number1 << endl;
+	cout << "The number2 is: " << number2 << endl;
+	cout << "So the bigger one is: " << the_bigger_one << endl;
+	return 0;
+}*/
+
+//==============================================================================================
+//6.Swap的变种，对两个变量的指针进行变形->实际上对引用初始化的理解
+//----------------------------------------------------------------------------------------------
+/*
+#include <iostream>
+
+using namespace std;
+
+void exchange_Int_Pointer(int* &num_pointer1, int* &num_pointer2){
+	int* temp = num_pointer1;
+	num_pointer1 = num_pointer2;
+	num_pointer2 = temp;
+}
+
+int main()
+{
+	int number1 = 10;
+	int number2 = 20;
+	int *number_pointer1 = &number1;
+	int *number_pointer2 = &number2;
+	cout << "Before Exchange: The two pointer point is: " << endl
+		 << "\t\t the first pointer point is: " << *number_pointer1 << endl
+		 << "\t\t the second pointer point is: " << *number_pointer2 << endl;
+	exchange_Int_Pointer(number_pointer1, number_pointer2);
+	cout << "After Exchange: The two pointer point is " << endl
+		 << "\t\t the first pointer point is: " << *number_pointer1 << endl
+		 << "\t\t the second pointer point is: " << *number_pointer2 << endl;
+	return 0;
+}*/
+
+//===============================================================================================
+//7.数组类形参的传递与表示
+//-----------------------------------------------------------------------------------------------
+/*
+#include <iostream>
+
+using namespace std;
+
+void print(const int *num){
+	cout << "The numer in arry is: " << *num << endl;
+}
+void print(const int number){
+	cout << "The number is: " << number << endl;
+}
+
+void print(const int *beg, const int *end){
+	while( beg != end )
+		cout << "The number in array is: " <<  *beg++ << endl;
+}
+
+int main()
+{
+	int i = 123;
+	int j[2] = {0, 1};
+	print(i);
+	print(j);
+	print(begin(j), end(j));
+	return 0;
+}*/
+
+//==============================================================================================
+//8.针对Main实参的操作
+//----------------------------------------------------------------------------------------------
+/*#include <iostream>
+
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+	string str1_argv = argv[1];
+	string str2_argv = argv[2];
+	cout <<"The connection of two string: "<< str1_argv << " and " << str2_argv << " is "  << str1_argv+str2_argv << endl;
+	return 0;
+}*/
+
+//===============================================================================================
+//9.对于可变形参进行操作
+//-----------------------------------------------------------------------------------------------
+//1.编写一个函数,对于列表中所有元素进行求和
+#include <iostream>
+using namespace std;
+
+void calculate_all(initializer_list<int> numbers){
+	int sum = 0;
+	for(auto number : numbers){
+		sum += number;
+	}
+	cout << "The sum of this number is: " << sum << endl;
+}
+
+void test_for_calculate_all(){
+	calculate_all({1, 2, 3, 4, 5});
+	calculate_all({20, 30, 40, 50, 12, 4, 2, 30,});
+}
+
+int main()
+{
+	test_for_calculate_all();
 }
