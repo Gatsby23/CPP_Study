@@ -231,6 +231,7 @@ int main(int argc, char* argv[])
 //9.对于可变形参进行操作
 //-----------------------------------------------------------------------------------------------
 //1.编写一个函数,对于列表中所有元素进行求和
+/*
 #include <iostream>
 using namespace std;
 
@@ -250,4 +251,40 @@ void test_for_calculate_all(){
 int main()
 {
 	test_for_calculate_all();
+}*/
+
+//===============================================================================================
+//10.对于函数返回值的理解
+//-----------------------------------------------------------------------------------------------
+//1.重新修改200页的函数
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool str_subrange(const string &str1, const string &str2){
+	//大小相同：此时用普通相等性判断结果作为返回值
+	if(str1.size() == str2.size())
+		return str1 == str2;								
+	auto size = (str1.size() < str2.size()) ? str1.size() : str2.size();
+	
+	//检查两个string对象的对应字符是否相等,以较短的字符串长度为限
+	for(decltype(size) i = 0; i != size; i++){
+		if(str1[i] != str2[i])
+			return false;
+	}
+	return true;
+}
+
+void test_str_subrange(){
+	string str1 = "hello";
+	string str2 = "world";
+	if(str_subrange(str1, str2))
+		cout << "The" <<  str1 << " is the subrange of the " << str2 << endl;
+	else
+		cout << "The" <<  str1 << " is not the subrange of the " << str2 << endl;
+}
+
+int main()
+{
+	test_str_subrange();
 }
