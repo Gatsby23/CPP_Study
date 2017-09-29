@@ -257,6 +257,7 @@ int main()
 //10.对于函数返回值的理解
 //-----------------------------------------------------------------------------------------------
 //1.重新修改200页的函数
+/*
 #include <iostream>
 #include <string>
 using namespace std;
@@ -287,4 +288,48 @@ void test_str_subrange(){
 int main()
 {
 	test_str_subrange();
+}*/
+
+//===============================================================================================
+//11.对引用返回+数组形参传递的理解
+//-----------------------------------------------------------------------------------------------
+/*
+#include <iostream>
+using namespace std;
+
+int &get(int *array, int index){ return array[index]; }
+
+int main()
+{
+	int ia[10];
+	for(int i = 0; i != 10; ++i)
+		get(ia, i) = i;
+	for(auto num : ia)
+		cout << num << endl;
+	return 0;
+}*/
+
+//===============================================================================================
+//12.对递归函数的理解
+//----------------------------------------------------------------------------------------------
+//
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+//递归函数输出vector<int>的内容
+void print(vector<int> vInt, unsigned index){
+	unsigned sz = vInt.size();
+	if(!vInt.empty() && index << sz){
+		cout << vInt[index] << endl;
+		print(vInt, index+1);
+	}
+}
+
+int main()
+{
+	vector v = {1, 3, 5, 7, 9, 11, 13, 15};
+	print(v, 0);
+	return 0;
 }
