@@ -312,7 +312,7 @@ int main()
 //===============================================================================================
 //12.对递归函数的理解
 //----------------------------------------------------------------------------------------------
-//
+/*
 #include <iostream>
 #include <vector>
 
@@ -330,6 +330,62 @@ void print(vector<int> vInt, unsigned index){
 int main()
 {
 	vector v = {1, 3, 5, 7, 9, 11, 13, 15};
+	print(v, 0);
+	return 0;
+}*/
+
+//===============================================================================================
+//13.返回数组指针
+//-----------------------------------------------------------------------------------------------
+/*
+#include <iostream>
+using namespace std;
+
+typedef int arrT[10];
+arrT* func(int i);*/
+
+//========================================================================
+//14.对默认实参的用法进行理解
+//------------------------------------------------------------------------
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+string make_plural(size_t ctr, const string &word, const string &ending = "s"){
+	return (ctr > 1) ? word + ending : word;
+}
+
+int main()
+{
+	cout << "Success的单数形式是: " << make_plural(1, "Success", "es") << endl;
+	cout << "Success的复数形式是: " << make_plural(2, "Success", "es") << endl;
+	return 0;
+}*/
+
+//===============================================================================================
+//15.对于调试器关闭打开的熟悉
+//-----------------------------------------------------------------------------------------------
+//
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void print(vector<int> vInt, unsigned index){
+	unsigned sz = vInt.size();
+	#ifndef NDEBUG
+	cout << "Vector对象的大小是" << sz <<endl;
+	#endif
+	if(!vInt.empty() && index < sz){
+		cout << vInt[index] << endl;
+		print(vInt, index+1);
+	}
+}
+
+int main()
+{
+	vector<int> v = {1, 2, 3, 4, 5, 6, 7};
 	print(v, 0);
 	return 0;
 }
