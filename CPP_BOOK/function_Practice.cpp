@@ -366,7 +366,7 @@ int main()
 //===============================================================================================
 //15.对于调试器关闭打开的熟悉
 //-----------------------------------------------------------------------------------------------
-//
+/*
 #include <iostream>
 #include <vector>
 
@@ -387,5 +387,46 @@ int main()
 {
 	vector<int> v = {1, 2, 3, 4, 5, 6, 7};
 	print(v, 0);
+	return 0;
+}*/
+
+//===============================================================================================
+//16.函数指针
+//-----------------------------------------------------------------------------------------------
+//这个是借助参考答案
+#include <iostream>
+#include <vector>
+using namespace std;
+
+//加法
+int func1(int a, int b){
+	return a + b;
+}
+
+//减法
+int func2(int a, int b){
+	return a - b;
+}
+
+//乘法
+int func3(int a, int b){
+	return a * b;
+}
+
+int func4(int a, int b){
+	return a / b;
+}
+
+void compute(int a, int b, int (*p)(int, int)){
+	cout << p(a, b) << endl;
+}
+
+int main()
+{
+	int i = 5, j = 10;
+	decltype(func1) *p1 = func1, *p2 = func2, *p3 = func3, *p4 = func4;
+	vector<decltype(func1)* > vF = {p1, p2, p3, p4};
+	for(auto p : vF)												//遍历vector中的每个元素,依次调用四则运算
+		compute(i, j, p);
 	return 0;
 }
