@@ -78,3 +78,27 @@ static Rank binSearch(T* A, T const& e, Rank lo, Rank hi){
 	}
 	return -1;
 }
+
+template<typename T>
+static Rank fibSearch(T* A, T const &e, Rank lo, Rank hi){
+	Fib fib(hi - lo);
+	while(lo < hi){
+		while(hi - lo < fib.get()) fib.prev();
+		Rank mi = lo + fib.get() - 1;
+		if(e < A[mi]) hi = mi;
+		else if (A[mi] < e) lo = mi + 1;
+		else return mi;							//在mi处命中
+	}
+	return -1;
+}
+
+template<typename T> 
+static Rank binSearch(T* A, T const &e, Rank lo, Rank hi){
+	while(1 < hi-lo){
+		Rank mi = (lo + hi) >> 1;
+		(e < A[mi]) ? hi = mi : lo = mi;
+	}
+	return (e == A[lo]) ? lo : -1;				//返回命中元素的秩或者-1
+}
+
+
