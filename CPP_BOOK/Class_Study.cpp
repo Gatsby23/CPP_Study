@@ -1,7 +1,7 @@
 //===============================================================================================
 //1.依据类的操作,定义类的数据成员
 //----------------------------------------------------------------------------------------------
-
+/*
 #include <iostream>
 #include <vector>
 #include <string>
@@ -73,7 +73,7 @@ int main()
 	}
 	return 0;
 }
-
+*/
 //===============================================================================================
 //2.还是考察对类的对象和操作的理解
 //-----------------------------------------------------------------------------------------------
@@ -133,3 +133,48 @@ int main()
 	Sales_data book3(cin);
 	print(cout, book1);
 }*/
+
+//=================================================================================================
+//4.对构造函数进行考察->为Person类构建构造函数
+//-------------------------------------------------------------------------------------------------
+/*
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Person{
+	public:
+		Person() = default;
+		Person(std::istream &is) { is >> *this; }
+		Person(const string &name):_name(name){}
+		Person(const string &address):_address(address){}
+		Person(const string &name, const string &address):_name(name), _address(address){}
+	public:
+		string isName() const { return _name; }
+		string isAddress() const { return _address; }
+	private:
+		string _name;
+		string _address;
+}*/
+
+//==================================================================================================
+//5.对public和private访问权限的理解
+//--------------------------------------------------------------------------------------------------
+class Sales_data{
+	public:											//添加了访问说明符
+		Sales_data() = default;
+		Sales_data(const std::string &s, unsigned n, double p): bookNo(s), units_sold(n), revenue(p*n){ }
+		Sales_data(const string &s):bookNo(s){ }
+	  	Sales_data(std::istream&);
+		std::string isbn() const { return bookNo; }
+		Sales_data &combine(const Sales_data&);
+	
+	private:
+		double avg_price() const { return units_sold ? revenue/units_sold : 0; }
+		std::string bookNo;
+		unsigned units_sold = 0;
+		double revenue = 0.0;	
+		
+
+}
