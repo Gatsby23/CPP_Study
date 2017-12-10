@@ -111,7 +111,7 @@ namespace std{
  */
 
 // util/minmax1.cpp
-/*
+
 #include <algorithm>
 #include <iostream>
 
@@ -135,7 +135,7 @@ int main()
 	//call minmax() for initializer list with special comparison function
 	std::pair<int*, int*> extremes = std::minmax({px, py, pz}, [](int *a, int *b){ return *a < *b; });
 	std::cout << *extremes.first << ", " << *extremes.second << std::endl;
-}*/
+}
 
 
 

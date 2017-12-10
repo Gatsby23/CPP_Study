@@ -161,6 +161,7 @@ class Person{
 //==================================================================================================
 //5.对public和private访问权限的理解
 //--------------------------------------------------------------------------------------------------
+/*
 class Sales_data{
 	public:											//添加了访问说明符
 		Sales_data() = default;
@@ -177,4 +178,64 @@ class Sales_data{
 		double revenue = 0.0;	
 		
 
+}*/
+
+//=================================================================================================
+//6. 对const 成员函数的理解
+//=================================================================================================
+/* 这里举的例子是经典的Effective中的例子*/
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+class CTextBlock{
+	public:
+		CTextBlock() = default;
+		CTextBlock(std::string str) { pText = new (char*)str.c_str(); }
+		char& operator[](std::size_t position) const{ return pText[position]; }
+	private:
+		char* pText;
+};
+
+
+int main()
+{
+	const CTextBlock cctb("Hello");
+	
+	char* pc = &cctb[0];
+	pc[0] = "J";
+	return 0;
+	
 }
+/*
+class test
+{
+public:
+    char& operator[](size_t index) const
+    {
+        return mPointer[index];
+    }
+    test(const char* str)
+    {
+        mPointer = new char[strlen(str)+1];
+        memcpy(mPointer,str,strlen(str)+1);
+    }
+    ~test()
+    {
+        delete mPointer;
+    }
+
+private:
+    char *mPointer;
+
+};
+int main()
+{
+    const test T1("123");    //创建常量对象
+    char *pc = &T1[0];         //调用const成员函数 返回指向内容的指针
+    pc[0]='x';                 //指针指向的值可以改变,与常量对象矛盾
+    return 0;
+}
+*/
