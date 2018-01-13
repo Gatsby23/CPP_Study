@@ -120,8 +120,63 @@ int main()
 	return 0;
 }*/
 
+// 学习new和动态数组的分配问题
+/*
+#include <iostream>
+#include <string>
 
+using namespace std;
 
+int main()
+{
+	const char *c1 = "Hello ";
+	const char *c2 = "World";
 
+	//字符串所需空间等于字符数+1
+	char *r = new char[strlen(c1) + strlen(c2) + 1];
+	strcpy(r, c1);									//拷贝第一个字符串常量
+	strcat(r, c2);									//拷贝第二个字符串常量
+	cout << r << endl;
 
+	string s1 = "hello ";
+	string s2 = "world";
+	strcpy(r, (s1+s2).c_str());
 
+	cout << r << endl;
+	//释放动态数组
+	delete[] r;
+
+	return 0;
+}*/
+
+//处理变长长度的数组
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main(int argc, char **argv)
+{
+	char c;
+
+	//分配20个字符的动态数组
+	//最多存放19个字符
+	char *r = new char[20];
+	int l  = 0;
+
+	while(cin.get(c)){
+		if(isspace(c))
+			break;
+		r[l++] = c;		//存放如动态数组
+		if(l == 20){	//已读入19个字符
+			cout << "达到数组容量上限" << endl;
+			break;
+		}
+	}
+	r[l] = 0;
+	cout << r << endl;
+
+	//释放动态数组
+	delete[] r;
+	return 0;
+}
