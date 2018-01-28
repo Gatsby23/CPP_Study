@@ -1,0 +1,74 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXFileReference section */
+		630DD448200B508700F83184 /* GLFW_Study.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLFW_Study.cpp; sourceTree = "<group>"; };
+		630DD449200B508700F83184 /* GLFW_Study.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLFW_Study.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		630DD441200B4FFF00F83184 = {
+			isa = PBXGroup;
+			children = (
+				630DD448200B508700F83184 /* GLFW_Study.cpp */,
+				630DD449200B508700F83184 /* GLFW_Study.hpp */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		630DD442200B4FFF00F83184 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+			};
+			buildConfigurationList = 630DD445200B4FFF00F83184 /* Build configuration list for PBXProject "Graphic_Study" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 630DD441200B4FFF00F83184;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		630DD446200B4FFF00F83184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		630DD447200B4FFF00F83184 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		630DD445200B4FFF00F83184 /* Build configuration list for PBXProject "Graphic_Study" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				630DD446200B4FFF00F83184 /* Debug */,
+				630DD447200B4FFF00F83184 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 630DD442200B4FFF00F83184 /* Project object */;
+}

@@ -1002,6 +1002,7 @@ int main()
 }*/
 
 //stl/binder.cpp
+/*
 #include <set>
 #include <deque>
 #include <algorithm>
@@ -1040,4 +1041,572 @@ int main()
 							  bind(less_equal<int>(), _1, 80))),
 				coll2.end());
 	PRINT_ELEMENTS(coll2, "removed:			");
+}
+*/
+
+// fo/foreach3.cpp
+/*
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// function object to process the mean value
+class MeanValue{
+	private:
+		long num;				// number of elements
+		long sum;				// sum of all element values
+	public:
+		// constructor
+		MeanValue(): num(0), sum(0){}
+
+		// "function call"
+		// - process one more element of the sequence
+		void operator()(int elem){
+			++num;						// increment count
+			sum += elem;				// add value
+		}
+
+		// return mean value
+		double value(){
+			return static_cast<double>(sum) / static_cast<double>(num);
+		}
+};
+
+
+int main()
+{
+	vector<int> coll = {1, 2, 3, 4, 5, 6, 7, 8};
+
+	// process and print mean value
+	MeanValue mv = for_each(coll.begin(), coll.end(), MeanValue());
+	cout << "mean value:	" << mv.value() << endl;
+}*/
+
+/*
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "print.hpp"
+using namespace std;
+
+class Nth{																	// function object that return true for the nth call
+	private:
+		int nth;															// call for which to return true
+		int count;															// call counter
+	public:
+		Nth(int n) : nth(n), count(0){ }
+		bool operator()(int){
+			return ++count == nth;
+		}
+};
+
+int main()
+{
+	list<int> coll = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	PRINT_ELEMENTS(coll, "coll:		");
+
+	// remove third element
+	list<int>::iterator pos;
+	pos = remove_if(coll.begin(), coll.end(), Nth(3));
+	coll.erase(pos, coll.end());
+
+	PRINT_ELEMENTS(coll, "3rd removed:	");		//这里有点奇怪,后面再看看
+}*/
+
+// fo/bind1.cpp
+/*
+#include <functional>
+#include <iostream>
+
+int main()
+{
+	auto plus10 = std::bind(std::plus<int>(), std::placeholders::_1, 10);
+	std::cout << "10:	" << plus10(7) << std::endl;
+	auto plus10times2 = std::bind(std::multiplies<int>(), std::bind(std::plus<int>(), std::placeholders::_1, 10), 2);
+	std::cout << "+10 *2" << plus10times2(7) << std::endl;
+
+	auto pow3 = std::bind(std::multiplies<int>(), std::bind(std::multiplies<int>(), std::placeholders::_1, std::placeholders::_1), std::placeholders::_1);
+	std::cout << "x*x*x" << pow3(7) << std::endl;
+
+	auto inversDivide = std::bind(std::divides<double>(), std::placeholders::_2, std::placeholders::_1);
+	std::cout << "invdiv:	" << inversDivide(49, 7) << std::endl;
+}*/
+/*
+#include <iostream>
+#include <algorithm>
+#include <functional>
+#include <locale>
+#include <string>
+using namespace std;
+using namespace std::placeholders;
+
+char myToupper(char c){
+	std::locale loc;
+	return std::use_facet<std::ctype<char> >(loc).toupper(c);
+}
+
+int main()
+{
+	string s("Internationalization");
+	string sub("Nation");
+
+	// search substring case insensitive
+	string::iterator pos;
+	pos = search(s.begin(), s.end(), sub.begin(), sub.end(), bind(equal_to<char>(), bind(myToupper, _1), bind(myToupper, _2)));
+	if(pos != s.end())
+		cout << "\"" << sub << "\" is part of \"" << s << "\"" << endl;
+}*/
+/*
+#include <functional>
+#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <string>
+using namespace std;
+using namespace std::placeholders;
+
+class Person{
+	private:
+		string name;
+	public:
+		Person(const string& n): name(n){}
+		void print() const{ cout << name << endl; }
+		void print2(const string& prefix) const{ cout << prefix << name << endl; }
+};
+
+int main()
+{
+	vector<Person> coll = { Person("Tick"), Person("Trick"), Person("Track") };
+
+	// call member function print() for each person
+	for_each(coll.begin(), coll.end(), bind(&Person::print, _1));
+	cout << endl;
+
+	// call member function print2() with additional argument for each person
+	for_each(coll.begin(), coll.end(), bind(&Person::print2, _1, "Person:	"));
+	cout << endl;
+
+	// call print2() for temporary Person
+	bind(&Person::print2, _1, "This is:	")(Person("nico"));
+}*/
+/*
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <functional>
+#include "fopow.hpp"
+using namespace std;
+using namespace std::placeholders;
+
+int main()
+{
+	vector<int> coll = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+	// print 3 raised to the power of all elements
+	transform(coll.begin(), coll.end(), ostream_iterator<float>(cout, " "), bind(fopow<float, int>(), 3, _1));
+	cout << endl;
+
+	// print all elements raised to the power of 3
+	transform(coll.begin(), coll.end(), ostream_iterator<float>(cout, " "), bind(fopow<float, int>(), _1, 3));
+	cout << endl;
+}*/
+
+/*
+#include <iostream>
+
+int main()
+{
+	auto plus10 = [](int i){ return i+10 };
+	std::cout << "+10:	" << plus10(7) << std::endl;
+	auto plus10times2 = [](int i){ return (i+10)*2;	 };
+	std::cout << "+10 *2:	" << plus10times2(7) << std::endl;
+	auto pow3 = [](int i){ return i*i*i; }
+	std::cout << "x*x*x:	" << pow3(7) << std::endl;
+	auto inversDivide = [](double d1, double d2){ return d2 / d1; };
+	std::cout << "invidiv:	" << inversDivde(49, 7) << std::endl;
+}*/
+
+// fo/lambda2.cpp
+/*
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	vector<int> coll = { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+	// process and print mean value
+	long sum = 0 ;
+	for_each(coll.begin(), coll.end(),			// range
+			 [&sum](int elem){ sum += elem; });
+	double mv = static_cast<double>(sum)/static_cast<double>(coll.size());
+	cout << "mean value:	" << mv << endl;
+}*/
+
+// fo/lambda3.cpp
+/*
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "print.hpp"
+using namespace std;
+
+int main()
+{
+	list<int> coll = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	PRINT_ELEMENTS(coll, "coll:		");
+
+	// remove third element
+	list<int>::iterator pos;
+	int count = 0;
+	pos = remove_if(coll.begin(), coll.end(),				//range
+					[count](int) mutable{ return ++count == 3; });
+	coll.erase(pos, coll.end());
+	PRINT_ELEMENTS(coll, "3rd,removed:	");
+}*/
+
+// fo/lambda4.cpp
+/*
+#include <iostream>
+#include <algorithm>
+#include <locale>
+#include <string>
+using namespace std;
+
+char myToupper(char c){
+	std::locale loc;
+	return std::use_facet<std::ctype<char> >(loc).toupper(c);
+}
+
+int main()
+{
+	string s("Internationalization");
+	string sub("Nation");
+
+	// search substring case insensitive
+	string::iterator pos;
+	pos = search(s.begin(), s.end(), sub.begin(), sub.end(), [](char c1, char c2){ return myToupper(c1)==myToupper(c2); });
+	if(pos != s.end())
+		cout << "\"" << sub << "\" is part of \"" << s << "\"" << endl;
+}*/
+
+// fo/lambda5.cpp
+/*
+#include <functional>
+#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <string>
+using namespace std;
+using namespace std::placeholders;
+
+class Person{
+	private:
+		string name;
+	public:
+		Person(const string& n): name(n){}
+		void print() const{
+			cout << name << endl;
+		}
+		void print2(const string& prefix) const{
+			cout << prefix << name << endl;
+		}
+
+};
+
+int main()
+{
+	vector<Person> coll = { Person("Tick"), Person("Trick"), Person("Track") };
+
+	// call member function print() for each person
+	for_each(coll.begin(), coll.end(), [](const Person& p){ p.print();	});
+	cout << endl;
+
+	// call member function print2() with additional argument for each person
+	for_each(coll.begin(), coll.end(), [](const Person& p){ p.print2("Person: "); });
+}*/
+
+// 这里的例子是示范如何输出每一个元素
+/*
+#include "algostuff.hpp"
+using namespace std;
+
+void print(int elem){
+	cout << elem << ' ';
+}
+
+int main()
+{
+	vector<int> coll;
+
+	INSERT_ELEMENTS(coll, 1, 9);
+
+	// call print() for each element
+	// for_each(coll.cbegin(), coll.cend(), [](int elem){ cout << elem << " "; });
+	for_each(coll.cbegin(), coll.cend(), print);
+	cout << endl;
+};
+*/
+// 下面看如何改变每一个元素
+
+/*
+#include "algostuff.hpp"
+using namespace std;
+
+int main()
+{
+	vector<int> coll;
+
+	INSERT_ELEMENTS(coll, 1, 9);
+
+	// add 10 to each element
+	for_each(coll.begin(), coll.end(), [](int& elem){ elem+= 10; });
+	PRINT_ELEMENTS(coll);
+
+	// add value of first element to each element
+	for_each(coll.begin(), coll.end(), [=](int& elem){ elem += *coll.begin(); });
+	PRINT_ELEMENTS(coll);
+}
+*/
+
+/*
+
+#include "algostuff.hpp"
+using namespace std;
+
+// function object to process the mean value
+class MeanValue{
+	private:
+		long num;			// number of elements
+		long sum;			// sum of all element values
+	public:
+		// constructor
+		MeanValue() : num(0), sum(0){ }
+
+		// function call
+		void operator()(int elem){
+			num++;			// increment count
+			sum += elem;	// add value
+		}
+
+		// return mean value(implicit type conversion)
+		operator double(){
+			return static_cast<double>(sum) / static_cast<double>(num);				
+		}
+};
+
+int main()
+{
+	vector<int> coll;
+
+	INSERT_ELEMENTS(coll, 1, 8);
+
+	// process and print mean value
+	double mv = for_each(coll.begin(), coll.end(), MeanValue());
+	cout << "Mean Value:	" << mv << endl;
+}*/
+
+// algo/count1.cpp
+/*
+#include "algostuff.hpp"
+using namespace std;
+
+int main()
+{
+	vector<int> coll;
+	int num;
+	INSERT_ELEMENTS(coll, 1, 9);
+	PRINT_ELEMENTS(coll, "coll: ");
+
+	// count elements with value 4
+	num = count(coll.cbegin(), coll.cend(), 4);
+	cout << "number of elements equal to 4:	" << num << endl;
+	
+	// count elements with even value
+	num = count_if(coll.cbegin(), coll.cend(), [](int elem){ return elem % 2 == 0; });
+	cout << "number of elements with even value: " << num << endl;
+
+	// count elements that are greater than value 4
+	num = count_if(coll.cbegin(), coll.cend(), [](int elem){ return elem > 4; });
+
+	cout << "number of elements greater than 4:	" << num << endl;
+}*/
+
+/*
+#include <cstdlib>
+#include "algostuff.hpp"
+using namespace std;
+
+bool absLess(int elem1, int elem2){
+	return abs(elem1) < abs(elem2);
+}
+
+int main()
+{
+	deque<int> coll;
+	
+	INSERT_ELEMENTS(coll, 2, 6);
+	INSERT_ELEMENTS(coll, -3, 6);
+
+	PRINT_ELEMENTS(coll);
+
+	// process and print minimum and maximum
+	cout << "minimum: "
+		 << *min_element(coll.cbegin(), coll.cend()) << endl;
+
+	cout << "maximum: "
+		 << *max_element(coll.cbegin(), coll.cend()) << endl;
+
+	// print min and max and their distance using minmax_element()
+	auto mm = minmax_element(coll.cbegin(), coll.cend());
+	cout << "min: " << *(mm.first) << endl;		// print minimum
+	cout << "max: " << *(mm.second) << endl;	// print maximum
+	cout << "distance: " << distance(mm.first, mm.second) << endl;
+
+	// process and print minimum and maximum of absolute values
+	cout << "minimum of absolute values: " << *min_element(coll.cbegin(), coll.cend(), absLess) << endl;
+	cout << "maximum of absolute values: " << *max_element(coll.cbegin(), coll.cend(), absLess) << endl;
+}*/
+
+// algo/find1.cpp
+/*
+#include "algostuff.hpp"
+using namespace std;
+int main()
+{
+	list<int> coll;
+	INSERT_ELEMENTS(coll, 1, 9);
+	INSERT_ELEMENTS(coll, 1, 9);
+
+	PRINT_ELEMENTS(coll, "coll:	");
+
+	// find first element with value 4
+	list<int>::iterator pos1;
+	pos1 = find(coll.begin(), coll.end(), 4);
+
+	// find second element with value 4
+	// -note: continue the search behind the first 4(if any)
+	list<int>::iterator pos2;
+	if(pos1 != coll.end())
+		pos2 = find(++pos1, coll.end(), 4);
+
+	// print all elements from first to second 4(both included)
+	// -note: now we need the position of the first 4 again(if any)
+	if(pos1 != coll.end() && pos2 != coll.end()){
+		copy(--pos1, ++pos2, ostream_iterator<int>(cout, " "));
+		cout << endl;
+	}
+}*/
+
+// algo/find2.cpp
+/*
+#include "algostuff.hpp"
+using namespace std;
+using namespace std::placeholders;
+
+int main()
+{
+	vector<int> coll;
+	vector<int>::iterator pos;
+	INSERT_ELEMENTS(coll, 1, 9);
+	PRINT_ELEMENTS(coll, "coll:	");
+
+	// find first element greater than 3
+	pos = find_if(coll.begin(), coll.end(), bind(greater<int>(), _1, 3));
+
+	// print its position
+	cout << "the "
+		 << distance(coll.begin(), pos) + 1
+		 << ". element is the first greater than 3" << endl;
+
+	// find first element divisible by 3
+	pos = find_if(coll.begin(), coll.end(), [](int elem){ return elem%3 == 0; });
+	
+	// print its position
+	cout << "the "
+		 << distance(coll.begin(), pos) + 1 
+		 << ". element is the first divisible by 3" << endl;
+
+	// find first element not < 5
+	pos = find_if_not(coll.begin(), coll.end(), bind(less<int>(), _1, 5));
+	cout << "first value >= 5: " << *pos << endl;
+}*/
+
+/*
+#include "algostuff.hpp"
+using namespace std;
+
+int main()
+{
+	deque<int> coll;
+
+	coll = { 1, 2, 7, 7, 6, 3, 9, 5, 7, 7, 7, 3, 6 };
+	PRINT_ELEMENTS(coll);
+
+	// find three consecutive elements with value 7
+	deque<int>::iterator pos;
+	pos = search_n(coll.begin(), coll.end(), 3, 7);
+
+	// print result
+	if(pos != coll.end())
+		cout << "three consecutive elements with value 7 "
+			 << "start with " << distance(coll.begin(), pos) + 1 
+			 << ". elements" << endl;
+	else
+		cout << "no four consecutive elements with value 7 found " 
+			 << endl;
+
+	// find four consecutive odd elements
+	pos = search_n(coll.begin(), coll.end(),			// range
+				   4,									// count
+				   0,									// value
+				   [](int elem, int value){ return elem%2 == 1; });
+
+	// print result
+	if(pos != coll.end()){
+		cout << "first four consecutive odd elements are:	";
+		for(int i = 0; i < 4; ++i, ++pos)
+			cout << *pos << ' ';
+	}
+	else
+		cout << "no four consecutive elements with value > 3 found";
+	cout << endl;
+}*/
+
+// algo/search1.cpp
+#include "algostuff.hpp"
+using namespace std;
+
+int main()
+{
+	deque<int> coll;
+	list<int> subcoll;
+
+	INSERT_ELEMENTS(coll, 1, 7);
+	INSERT_ELEMENTS(coll, 1, 7);
+	INSERT_ELEMENTS(subcoll, 3, 6);
+
+	PRINT_ELEMENTS(coll, "coll:	");
+	PRINT_ELEMENTS(subcoll, "subcoll:	");
+
+	// search first occurrence of subcoll in coll
+	deque<int>::iterator pos;
+	pos = search( coll.begin(), coll.end(), subcoll.begin(), subcoll.end() );
+
+
+	// loop while subcoll found as subrange of coll
+	while( pos != coll.end() ){
+		// print position of first element
+		cout << "subcoll found starting with element "
+			 << distance(coll.begin(), pos) + 1
+			 << endl;
+
+		// search next occurrence of subcoll
+		++pos;
+		pos = search(pos, coll.end(), subcoll.begin(), subcoll.end() );
+	}
 }
