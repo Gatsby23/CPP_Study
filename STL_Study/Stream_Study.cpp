@@ -318,6 +318,7 @@ int main()
 }*/
 
 // io/sstream2.cpp
+/*
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -344,4 +345,175 @@ int main()
 	cout << "firstname:	" << get<0>(t2) << endl;
 	cout << "middle:	" << get<1>(t2) << endl;
 	cout << "lastname:	" << get<2>(t2) << endl;
+}*/
+
+// io/streambuffer1.cpp
+/*
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	// stream for hexadecimal standarad output
+	ostream hexout(cout.rdbuf());
+	hexout.setf(ios::hex, ios::basefield);
+	hexout.setf(ios::showbase);
+
+	// switch between decimal and hexadecimal output
+	hexout << "hexout:	" << 177 << "	" << endl;
+	cout   << "cout:	" << 177 << "	" << endl;
+	hexout << "hexout:	" << -49 << "	" << endl;
+	cout   << "cout:	" << -49 << "	" << endl;
+	hexout << endl;
+}*/
+
+// io/streambuffer2.cpp
+/*
+#include <iostream>
+#include <fstream>
+
+void hexMultiplicationTable(std::streambuf* buffer, int num){
+	std::ostream hexout(buffer);
+	hexout << std::hex << std::showbase;
+
+	for(int i = 1; i <= num; ++i)
+		for(int j = 1; j <= 10; ++j)
+			hexout << i*j << std::endl;
+} // does NOT close buffer
+
+int main()
+{
+	using namespace std;
+	int num = 5;
+
+	cout << "We print " << num << " lines hexadecimal" << std::endl;
+
+	hexMultiplicationTable(cout.rdbuf(), num);
+
+	cout << "That was the output of " << num << " hexadecimal lines " << endl;
+}
+*/
+
+// io/streamredirct1.cpp
+/*
+#include <iostream>
+#include <fstream>
+#include <memory>
+using namespace std;
+
+void redirect(ostream&);
+
+int main()
+{
+	cout << "the first row" << endl;
+
+	redirect(cout);
+
+	cout << "the last row" << endl;
+}
+
+void redirect(ostream& strm){
+	// save output buffer of the stream
+	// -use unique pointer with deleter that ensures to restore
+	// the original output buffer at the end of the function
+	auto del = [&](streambuf* p){ strm.rdbuf(p); }
+	unique_ptr<streambuf, decltype(del)> origBuffer(strm.rdbuf(), del);
+
+	// redirect output into the file redirect.txt
+	ofstream file("redirect.txt");
+	strm.rdbuf(file.rdbuf());
+
+	file << "one row for the file" << endl;
+	strm << "one row for the stream" << endl;
+}*/
+
+// io/streamreadwrite1.cpp
+/*
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	// open file "example.dat" for reading and writing
+	filebuf buffer;
+	ostream output(&buffer);
+	istream input(&buffer);
+	buffer.open("example.dat", ios::in | ios::out | ios::trunc);
+	for(int i =1; i <=4; i++){
+		// write one line
+		output << i << ".line" << endl;
+
+		// print all file contents
+		input.seekg(0);					// seek to the beginning
+		char c;
+		while(input.get(c)){
+			cout.put(c);
+		}
+		cout << endl;
+		input.clear();					// clear eofbit and failbit
+	}
+}*/
+
+// io/charcat2.cpp
+/*
+#include <iostream>
+#include <iterator>
+using namespace std;
+
+int main()
+{
+	// input stream buffer iterator for cin
+	istreambuf_iterator<char> inpos(cin);
+
+	// end-of-stream iterator
+	istreambuf_iterator<char> endpos;
+
+	// output stream buffer iterator for cout
+	ostreambuf_iterator<char> output(cout);
+
+	// while input iterator is valid
+	while(inpos != endpos){
+		*outpos = *inpos;	// assign its value to the output iterator
+		++inpos;
+		++outpos;
+	}
+}*/
+
+// io/outbuf1.hpp
+/*
+#include <streambuf>
+#include <locale>
+#include <cstdio>
+
+class outbuf: public std::streambuf{
+	protected:
+		// central output function
+		// - print characters in uppercase mode
+		virtual int_type overflow(int_type c){
+			if(c != EOF){
+				// convert lowercase to uppercase
+				c = std::toupper(c.getloc());
+
+				// and write the character to the standard output
+				if(std::putchar(c) == EOF){
+					return EOF;
+				}
+			}
+			return c;
+		}
+};*/
+
+// io/outbuf1.cpp
+//
+#include <iostream>
+#include <outbuf1.hpp>
+
+int main()
+{
+	outbuf ob;					// create special output buffer
+	std::ostream out(&ob);		// initialize output stream with that output buffer
+
+	out << "31 hexadecimal:	" << std::hex << 31 << std::endl;
 }
