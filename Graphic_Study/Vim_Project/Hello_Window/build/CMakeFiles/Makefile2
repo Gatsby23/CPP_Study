@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Wind
 CMAKE_BINARY_DIR = /home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/Hello_Window.dir
+# Target rules for target CMakeFiles/helloWindow.dir
 
 # All Build rule for target.
-CMakeFiles/Hello_Window.dir/all:
-	$(MAKE) -f CMakeFiles/Hello_Window.dir/build.make CMakeFiles/Hello_Window.dir/depend
-	$(MAKE) -f CMakeFiles/Hello_Window.dir/build.make CMakeFiles/Hello_Window.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build/CMakeFiles --progress-num=1,2 "Built target Hello_Window"
-.PHONY : CMakeFiles/Hello_Window.dir/all
+CMakeFiles/helloWindow.dir/all:
+	$(MAKE) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/depend
+	$(MAKE) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build/CMakeFiles --progress-num=1,2,3 "Built target helloWindow"
+.PHONY : CMakeFiles/helloWindow.dir/all
 
 # Include target in all.
-all: CMakeFiles/Hello_Window.dir/all
+all: CMakeFiles/helloWindow.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Hello_Window.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Hello_Window.dir/all
+CMakeFiles/helloWindow.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/helloWindow.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build/CMakeFiles 0
-.PHONY : CMakeFiles/Hello_Window.dir/rule
+.PHONY : CMakeFiles/helloWindow.dir/rule
 
 # Convenience name for target.
-Hello_Window: CMakeFiles/Hello_Window.dir/rule
+helloWindow: CMakeFiles/helloWindow.dir/rule
 
-.PHONY : Hello_Window
-
-# clean rule for target.
-CMakeFiles/Hello_Window.dir/clean:
-	$(MAKE) -f CMakeFiles/Hello_Window.dir/build.make CMakeFiles/Hello_Window.dir/clean
-.PHONY : CMakeFiles/Hello_Window.dir/clean
+.PHONY : helloWindow
 
 # clean rule for target.
-clean: CMakeFiles/Hello_Window.dir/clean
+CMakeFiles/helloWindow.dir/clean:
+	$(MAKE) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/clean
+.PHONY : CMakeFiles/helloWindow.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/helloWindow.dir/clean
 
 .PHONY : clean
 
