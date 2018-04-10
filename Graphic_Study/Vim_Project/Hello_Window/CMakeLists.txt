@@ -1,7 +1,7 @@
 cmake_minimum_required( VERSION 2.8 )
 PROJECT(helloWindow)
 
-# use the relative path
+# use the c++11 standard
 set(CMAKE_CXX_FLAGS "-std=c++11")
 
 # set the complier
