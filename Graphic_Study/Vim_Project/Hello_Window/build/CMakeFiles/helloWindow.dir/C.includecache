@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -34,7 +34,7 @@ stdint.h
 inttypes.h
 -
 
-/home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/src/glad.c
+/Users/gatsby/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/src/glad.c
 stdio.h
 -
 stdlib.h
