@@ -3,15 +3,15 @@
 
 # compile C with /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
 # compile CXX with /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
-C_FLAGS =   -ldl
+C_FLAGS =  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk   -ldl
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/gatsby/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/../include 
+C_INCLUDES = -I/usr/local/include -I/Users/gatsby/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/../include 
 
-CXX_FLAGS = -std=c++11   -ldl
+CXX_FLAGS = -std=c++11 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk   -ldl
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/gatsby/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/../include 
+CXX_INCLUDES = -I/usr/local/include -I/Users/gatsby/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/../include 
 

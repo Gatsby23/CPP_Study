@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6308723720B58E7300239AFB /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6308723620B58E7300239AFB /* libGLEW.2.1.0.dylib */; };
+		6308723920B58E8E00239AFB /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6308723820B58E8E00239AFB /* libglfw.3.2.dylib */; };
+		6308723B20B5939400239AFB /* Triangle_Study.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6308723A20B5939400239AFB /* Triangle_Study.cpp */; };
+		6308723D20B5A42100239AFB /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 6308723C20B5A42100239AFB /* glad.c */; };
 		63805EFF2079B21700233704 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63805EFE2079B21700233704 /* main.cpp */; };
 		63805F072079B24100233704 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63805F062079B24100233704 /* OpenGL.framework */; };
 		63805F092079B25100233704 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63805F082079B25100233704 /* GLUT.framework */; };
@@ -25,6 +29,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6308723620B58E7300239AFB /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		6308723820B58E8E00239AFB /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		6308723A20B5939400239AFB /* Triangle_Study.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle_Study.cpp; sourceTree = "<group>"; };
+		6308723C20B5A42100239AFB /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		63805EFB2079B21700233704 /* Graphic_Study */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Graphic_Study; sourceTree = BUILT_PRODUCTS_DIR; };
 		63805EFE2079B21700233704 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		63805F062079B24100233704 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -36,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6308723920B58E8E00239AFB /* libglfw.3.2.dylib in Frameworks */,
+				6308723720B58E7300239AFB /* libGLEW.2.1.0.dylib in Frameworks */,
 				63805F092079B25100233704 /* GLUT.framework in Frameworks */,
 				63805F072079B24100233704 /* OpenGL.framework in Frameworks */,
 			);
@@ -64,7 +74,9 @@
 		63805EFD2079B21700233704 /* Graphic_Study */ = {
 			isa = PBXGroup;
 			children = (
+				6308723C20B5A42100239AFB /* glad.c */,
 				63805EFE2079B21700233704 /* main.cpp */,
+				6308723A20B5939400239AFB /* Triangle_Study.cpp */,
 			);
 			path = Graphic_Study;
 			sourceTree = "<group>";
@@ -72,6 +84,8 @@
 		63805F052079B24100233704 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6308723820B58E8E00239AFB /* libglfw.3.2.dylib */,
+				6308723620B58E7300239AFB /* libGLEW.2.1.0.dylib */,
 				63805F082079B25100233704 /* GLUT.framework */,
 				63805F062079B24100233704 /* OpenGL.framework */,
 			);
@@ -112,7 +126,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 63805EF62079B21700233704 /* Build configuration list for PBXProject "Graphic_Study" */;
+			buildConfigurationList = 63805EF62079B21700233704 /* Build configuration list for PBXProject " " */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -135,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63805EFF2079B21700233704 /* main.cpp in Sources */,
+				6308723B20B5939400239AFB /* Triangle_Study.cpp in Sources */,
+				6308723D20B5A42100239AFB /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +270,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -262,6 +284,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -269,7 +297,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63805EF62079B21700233704 /* Build configuration list for PBXProject "Graphic_Study" */ = {
+		63805EF62079B21700233704 /* Build configuration list for PBXProject " " */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63805F002079B21700233704 /* Debug */,

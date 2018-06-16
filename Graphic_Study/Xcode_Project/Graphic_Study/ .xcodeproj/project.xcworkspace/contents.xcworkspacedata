@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Graphic_Study.xcodeproj">
+      location = "self:/Users/gatsby/CPP_Study/Graphic_Study/Xcode_Project/Graphic_Study/ .xcodeproj">
    </FileRef>
 </Workspace>
