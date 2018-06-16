@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="45">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <logicalFolder name="f1" displayName="adplug" projectFiles="true">
+      <itemPath>adplug/binfile.cpp</itemPath>
+      <itemPath>adplug/binfile.h</itemPath>
+      <itemPath>adplug/binio.cpp</itemPath>
+      <itemPath>adplug/binio.h</itemPath>
+      <itemPath>adplug/emuopl.cpp</itemPath>
+      <itemPath>adplug/emuopl.h</itemPath>
+      <itemPath>adplug/fmopl.c</itemPath>
+      <itemPath>adplug/fmopl.h</itemPath>
+      <itemPath>adplug/fprovide.cpp</itemPath>
+      <itemPath>adplug/fprovide.h</itemPath>
+      <itemPath>adplug/opl.h</itemPath>
+      <itemPath>adplug/player.cpp</itemPath>
+      <itemPath>adplug/player.h</itemPath>
+      <itemPath>adplug/rix.cpp</itemPath>
+      <itemPath>adplug/rix.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>ascii.h</itemPath>
+      <itemPath>battle.h</itemPath>
+      <itemPath>common.h</itemPath>
+      <itemPath>ending.h</itemPath>
+      <itemPath>fight.h</itemPath>
+      <itemPath>font.h</itemPath>
+      <itemPath>game.h</itemPath>
+      <itemPath>getopt.h</itemPath>
+      <itemPath>global.h</itemPath>
+      <itemPath>input.h</itemPath>
+      <itemPath>itemmenu.h</itemPath>
+      <itemPath>magicmenu.h</itemPath>
+      <itemPath>main.h</itemPath>
+      <itemPath>map.h</itemPath>
+      <itemPath>palcommon.h</itemPath>
+      <itemPath>palette.h</itemPath>
+      <itemPath>play.h</itemPath>
+      <itemPath>res.h</itemPath>
+      <itemPath>rixplay.h</itemPath>
+      <itemPath>rngplay.h</itemPath>
+      <itemPath>scene.h</itemPath>
+      <itemPath>script.h</itemPath>
+      <itemPath>sound.h</itemPath>
+      <itemPath>text.h</itemPath>
+      <itemPath>ui.h</itemPath>
+      <itemPath>uibattle.h</itemPath>
+      <itemPath>uigame.h</itemPath>
+      <itemPath>util.h</itemPath>
+      <itemPath>video.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <itemPath>sdlpal.ico</itemPath>
+      <itemPath>sdlpal.rc</itemPath>
+      <itemPath>sdlpal.xpm</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>battle.c</itemPath>
+      <itemPath>ending.c</itemPath>
+      <itemPath>fight.c</itemPath>
+      <itemPath>font.c</itemPath>
+      <itemPath>game.c</itemPath>
+      <itemPath>getopt.c</itemPath>
+      <itemPath>global.c</itemPath>
+      <itemPath>input.c</itemPath>
+      <itemPath>itemmenu.c</itemPath>
+      <itemPath>magicmenu.c</itemPath>
+      <itemPath>main.c</itemPath>
+      <itemPath>map.c</itemPath>
+      <itemPath>palcommon.c</itemPath>
+      <itemPath>palette.c</itemPath>
+      <itemPath>play.c</itemPath>
+      <itemPath>res.c</itemPath>
+      <itemPath>rixplay.cpp</itemPath>
+      <itemPath>rngplay.c</itemPath>
+      <itemPath>scene.c</itemPath>
+      <itemPath>script.c</itemPath>
+      <itemPath>sound.c</itemPath>
+      <itemPath>text.c</itemPath>
+      <itemPath>ui.c</itemPath>
+      <itemPath>uibattle.c</itemPath>
+      <itemPath>uigame.c</itemPath>
+      <itemPath>util.c</itemPath>
+      <itemPath>video.c</itemPath>
+      <itemPath>yj1.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceEncoding>UTF-8</sourceEncoding>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
+      </toolsSet>
+      <compileType>
+        <cCompilerTool>
+          <includeDirectories>
+            <directoryPath>/usr/include/SDL</directoryPath>
+          </includeDirectories>
+          <commandLine>`sdl-config --cflags`</commandLine>
+          <preprocessorList>
+            <Elem>_DEBUG</Elem>
+          </preprocessorList>
+        </cCompilerTool>
+        <ccCompilerTool>
+          <includeDirectories>
+            <directoryPath>/usr/include/SDL</directoryPath>
+          </includeDirectories>
+          <commandLine>`sdl-config --cflags`</commandLine>
+          <preprocessorList>
+            <Elem>_DEBUG</Elem>
+          </preprocessorList>
+        </ccCompilerTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibStdlibItem>Mathematics</linkerLibStdlibItem>
+          </linkerLibItems>
+          <commandLine>`sdl-config --libs` -Xlinker -Map=dist/Debug/GNU-Linux-x86/sdlpal.map</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="adplug/binfile.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/binfile.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/binio.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/binio.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/emuopl.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/emuopl.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/fmopl.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="adplug/fmopl.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/fprovide.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/fprovide.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/opl.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/player.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/player.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/rix.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/rix.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="ascii.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="battle.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="battle.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="common.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="ending.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="ending.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="fight.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="fight.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="font.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="font.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="game.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="game.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="getopt.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="getopt.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="global.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="global.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="input.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="input.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="itemmenu.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="itemmenu.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="magicmenu.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="magicmenu.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="main.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="main.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="map.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="map.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="palcommon.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="palcommon.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="palette.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="palette.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="play.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="play.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="res.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="res.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="rixplay.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="rixplay.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="rngplay.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="rngplay.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="scene.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="scene.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="script.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="script.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="sdlpal.ico">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="sdlpal.rc">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="sdlpal.xpm">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="sound.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="sound.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="text.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="text.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="ui.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="ui.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="uibattle.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="uibattle.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="uigame.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="uigame.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="util.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="util.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="video.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="video.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="yj1.c">
+        <itemTool>0</itemTool>
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
+      </toolsSet>
+      <compileType>
+        <cCompilerTool>
+          <developmentMode>5</developmentMode>
+          <stripSymbols>true</stripSymbols>
+          <includeDirectories>
+            <directoryPath>/usr/include/SDL</directoryPath>
+          </includeDirectories>
+          <commandLine>`sdl-config --cflags`</commandLine>
+        </cCompilerTool>
+        <ccCompilerTool>
+          <developmentMode>5</developmentMode>
+          <stripSymbols>true</stripSymbols>
+          <includeDirectories>
+            <directoryPath>/usr/include/SDL</directoryPath>
+          </includeDirectories>
+          <commandLine>`sdl-config --cflags`</commandLine>
+        </ccCompilerTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <linkerTool>
+          <stripSymbols>true</stripSymbols>
+          <linkerLibItems>
+            <linkerLibStdlibItem>Mathematics</linkerLibStdlibItem>
+          </linkerLibItems>
+          <commandLine>`sdl-config --libs`</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="adplug/binfile.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/binfile.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/binio.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/binio.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/emuopl.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/emuopl.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/fmopl.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="adplug/fmopl.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/fprovide.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/fprovide.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/opl.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/player.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/player.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="adplug/rix.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="adplug/rix.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="ascii.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="battle.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="battle.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="common.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="ending.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="ending.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="fight.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="fight.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="font.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="font.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="game.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="game.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="getopt.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="getopt.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="global.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="global.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="input.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="input.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="itemmenu.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="itemmenu.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="magicmenu.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="magicmenu.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="main.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="main.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="map.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="map.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="palcommon.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="palcommon.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="palette.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="palette.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="play.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="play.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="res.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="res.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="rixplay.cpp">
+        <itemTool>1</itemTool>
+      </item>
+      <item path="rixplay.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="rngplay.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="rngplay.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="scene.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="scene.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="script.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="script.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="sdlpal.ico">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="sdlpal.rc">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="sdlpal.xpm">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="sound.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="sound.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="text.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="text.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="ui.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="ui.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="uibattle.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="uibattle.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="uigame.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="uigame.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="util.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="util.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="video.c">
+        <itemTool>0</itemTool>
+      </item>
+      <item path="video.h">
+        <itemTool>3</itemTool>
+      </item>
+      <item path="yj1.c">
+        <itemTool>0</itemTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

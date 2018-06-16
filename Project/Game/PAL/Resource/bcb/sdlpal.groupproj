@@ -1,0 +1,54 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{75e9677a-da9f-4c0d-b08d-f893646d7a26}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="..\..\..\SDL-1.2-bcb\Borland\bcb6\SDL.cbproj" />
+    <Projects Include="..\..\..\SDL-1.2-bcb\Borland\bcb6\SDLmain.cbproj" />
+    <Projects Include="sdlpal.cbproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="sdlpal">
+    <MSBuild Projects="sdlpal.cbproj" Targets="" />
+  </Target>
+  <Target Name="sdlpal:Clean">
+    <MSBuild Projects="sdlpal.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="sdlpal:Make">
+    <MSBuild Projects="sdlpal.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="SDL">
+    <MSBuild Projects="..\..\..\SDL-1.2-bcb\Borland\bcb6\SDL.cbproj" Targets="" />
+  </Target>
+  <Target Name="SDL:Clean">
+    <MSBuild Projects="..\..\..\SDL-1.2-bcb\Borland\bcb6\SDL.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="SDL:Make">
+    <MSBuild Projects="..\..\..\SDL-1.2-bcb\Borland\bcb6\SDL.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="SDLmain">
+    <MSBuild Projects="..\..\..\SDL-1.2-bcb\Borland\bcb6\SDLmain.cbproj" Targets="" />
+  </Target>
+  <Target Name="SDLmain:Clean">
+    <MSBuild Projects="..\..\..\SDL-1.2-bcb\Borland\bcb6\SDLmain.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="SDLmain:Make">
+    <MSBuild Projects="..\..\..\SDL-1.2-bcb\Borland\bcb6\SDLmain.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="sdlpal;SDL;SDLmain" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="sdlpal:Clean;SDL:Clean;SDLmain:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="sdlpal:Make;SDL:Make;SDLmain:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

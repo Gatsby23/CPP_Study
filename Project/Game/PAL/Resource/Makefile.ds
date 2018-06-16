@@ -1,0 +1,173 @@
+#---------------------------------------------------------------------------------
+# Clear the implicit built in rules
+#---------------------------------------------------------------------------------
+.SUFFIXES:
+#---------------------------------------------------------------------------------
+ifeq ($(strip $(DEVKITARM)),)
+DEVKITPRO=/usr/local/devkitPro
+DEVKITARM=$(DEVKITPRO)/devkitARM
+endif
+
+include $(DEVKITARM)/ds_rules
+
+#---------------------------------------------------------------------------------
+# TARGET is the name of the output, if this ends with _mb generates a multiboot image
+# BUILD is the directory where object files & intermediate files will be placed
+# SOURCES is a list of directories containing source code
+# INCLUDES is a list of directories containing extra header files
+#---------------------------------------------------------------------------------
+TARGET		:=	sdlpal
+BUILD		:=	build
+SOURCES		:=	.
+INCLUDES	:=	
+DATA		:=	../pal
+#---------------------------------------------------------------------------------
+# options for code generation
+#---------------------------------------------------------------------------------
+ARCH	:=	-mthumb -mthumb-interwork
+
+CFLAGS	:=	-Wall -O2\
+ 			-mcpu=arm9tdmi -mtune=arm9tdmi -fomit-frame-pointer\
+			-ffast-math \
+			$(ARCH) -DNDS=1
+
+CFLAGS	+=	$(INCLUDE) -DARM9 
+CXXFLAGS	:= $(CFLAGS) 
+ASFLAGS	:=	$(ARCH)
+LDFLAGS	=	-specs=ds_arm9.specs -s $(ARCH) -mno-fpu -Wl,-Map,$(notdir $*.map) 
+
+#---------------------------------------------------------------------------------
+# path to tools - this can be deleted if you set the path in windows
+#---------------------------------------------------------------------------------
+export PATH		:=	$(DEVKITARM)/bin:$(PATH)
+
+#---------------------------------------------------------------------------------
+# any extra libraries we wish to link with the project
+#---------------------------------------------------------------------------------
+LIBS	:=	-lfat -lnds9 -lSDL -lnds9 
+
+#---------------------------------------------------------------------------------
+# list of directories containing libraries, this must be the top level containing
+# include and lib
+#---------------------------------------------------------------------------------
+LIBDIRS	:=	$(LIBNDS)
+
+#---------------------------------------------------------------------------------
+# no real need to edit anything past this point unless you need to add additional
+# rules for different file extensions
+#---------------------------------------------------------------------------------
+ifneq ($(BUILD),$(notdir $(CURDIR)))
+#---------------------------------------------------------------------------------
+
+export OUTPUT	:=	$(CURDIR)/$(TARGET)
+
+export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
+	$(foreach dir,$(SOURCES)/adplug,$(CURDIR)/$(dir)) \
+	$(foreach dir,$(DATA),$(CURDIR)/$(dir))
+export PATH	:=	$(DEVKITARM)/bin:$(PATH)
+export DEPSDIR	:=	$(CURDIR)/$(BUILD)
+
+#---------------------------------------------------------------------------------
+# automatically build a list of object files for our project
+#---------------------------------------------------------------------------------
+CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c))) \
+	$(foreach dir,$(SOURCES)/adplug,$(notdir $(wildcard $(dir)/*.c)))
+CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp))) \
+		$(foreach dir,$(SOURCES)/adplug,$(notdir $(wildcard $(dir)/*.cpp)))
+SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s))) \
+		$(foreach dir,$(SOURCES)/adplug,$(notdir $(wildcard $(dir)/*.s)))
+#BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.mkf))) \
+#		$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.msg))) \
+#		$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.asc))) \
+#		$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.fon))) \
+#		$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.dat)))
+#---------------------------------------------------------------------------------
+# use CXX for linking C++ projects, CC for standard C
+#---------------------------------------------------------------------------------
+ifeq ($(strip $(CPPFILES)),)
+#---------------------------------------------------------------------------------
+	export LD	:=	$(CC)
+#---------------------------------------------------------------------------------
+else
+#---------------------------------------------------------------------------------
+	export LD	:=	$(CXX)
+#---------------------------------------------------------------------------------
+endif
+#---------------------------------------------------------------------------------
+
+export OFILES	:= $(BINFILES:.bin=.o) $(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(SFILES:.s=.o)
+
+#---------------------------------------------------------------------------------
+# build a list of include paths
+#---------------------------------------------------------------------------------
+export OFILES	:=	$(addsuffix .o, $(BINFILES))\
+					$(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(SFILES:.s=.o)
+ 
+export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
+					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
+					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
+					-I$(CURDIR)/$(BUILD)  -I$(LIBNDS)/include/SDL
+ 
+export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
+ 
+.PHONY: $(BUILD) clean 
+
+#---------------------------------------------------------------------------------
+$(BUILD):
+	@[ -d $@ ] || mkdir -p $@
+	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile.ds
+ 
+#---------------------------------------------------------------------------------
+clean:
+	@echo clean ...
+	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).nds $(TARGET).arm9 $(TARGET).ds.gba  
+
+#---------------------------------------------------------------------------------
+else
+
+DEPENDS	:=	$(OFILES:.o=.d)
+
+#---------------------------------------------------------------------------------
+# main targets
+#---------------------------------------------------------------------------------
+$(OUTPUT).ds.gba	: 	$(OUTPUT).nds
+$(OUTPUT).nds	: 	$(OUTPUT).arm9
+$(OUTPUT).arm9	:	$(OUTPUT).elf
+$(OUTPUT).elf	:	$(OFILES)
+ 
+#---------------------------------------------------------------------------------
+%.mkf.o	:	%.mkf
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+ 
+#---------------------------------------------------------------------------------
+%.dat.o	:	%.dat
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+ 
+#---------------------------------------------------------------------------------
+%.asc.o	:	%.asc
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+ 
+#---------------------------------------------------------------------------------
+%.msg.o	:	%.msg
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+ 
+#---------------------------------------------------------------------------------
+%.fon.o	:	%.fon
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+ 
+ 
+-include $(DEPENDS)
+ 
+#---------------------------------------------------------------------------------------
+endif
+#--------------------------------------------------------------------------------------- 

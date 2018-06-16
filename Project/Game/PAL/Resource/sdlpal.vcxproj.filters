@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{87213414-b4b3-4661-95fe-0d7606d39fc6}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{0ba86baf-7de0-4bae-af27-210aee1a90dd}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="adplug">
+      <UniqueIdentifier>{77045dbf-15fd-42ec-8b31-e9e83bac2609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{71aeba5e-47c0-4ffc-891b-f92919010187}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="battle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ending.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fight.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="font.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getopt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="global.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="input.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="itemmenu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="magicmenu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="map.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="palcommon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="palette.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="play.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="res.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rixplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rngplay.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="script.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sound.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="text.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uibattle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uigame.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="video.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="yj1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="adplug\binfile.cpp">
+      <Filter>adplug</Filter>
+    </ClCompile>
+    <ClCompile Include="adplug\binio.cpp">
+      <Filter>adplug</Filter>
+    </ClCompile>
+    <ClCompile Include="adplug\emuopl.cpp">
+      <Filter>adplug</Filter>
+    </ClCompile>
+    <ClCompile Include="adplug\fmopl.c">
+      <Filter>adplug</Filter>
+    </ClCompile>
+    <ClCompile Include="adplug\fprovide.cpp">
+      <Filter>adplug</Filter>
+    </ClCompile>
+    <ClCompile Include="adplug\player.cpp">
+      <Filter>adplug</Filter>
+    </ClCompile>
+    <ClCompile Include="adplug\rix.cpp">
+      <Filter>adplug</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ascii.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="battle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ending.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="getopt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="itemmenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="magicmenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="palcommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="palette.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="play.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="res.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rixplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rngplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="script.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uibattle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uigame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="video.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="adplug\binfile.h">
+      <Filter>adplug</Filter>
+    </ClInclude>
+    <ClInclude Include="adplug\binio.h">
+      <Filter>adplug</Filter>
+    </ClInclude>
+    <ClInclude Include="adplug\emuopl.h">
+      <Filter>adplug</Filter>
+    </ClInclude>
+    <ClInclude Include="adplug\fmopl.h">
+      <Filter>adplug</Filter>
+    </ClInclude>
+    <ClInclude Include="adplug\fprovide.h">
+      <Filter>adplug</Filter>
+    </ClInclude>
+    <ClInclude Include="adplug\opl.h">
+      <Filter>adplug</Filter>
+    </ClInclude>
+    <ClInclude Include="adplug\player.h">
+      <Filter>adplug</Filter>
+    </ClInclude>
+    <ClInclude Include="adplug\rix.h">
+      <Filter>adplug</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="sdlpal.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="sdlpal.ico">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <ProjectGuid>{97ADEBD0-5333-4E9D-A9F7-6F3F226ECA5C}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="GccCompiler" />
+    </Compiler>
+    <Language>C</Language>
+    <Target>Bin</Target>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <OutputName>sdlpal</OutputName>
+    <CompileTarget>Bin</CompileTarget>
+    <ExtraLinkerArguments>`sdl-config --libs`</ExtraLinkerArguments>
+    <ExtraCompilerArguments>`sdl-config --cflags`</ExtraCompilerArguments>
+    <Libs>
+      <Libs>
+        <Lib>stdc++</Lib>
+      </Libs>
+    </Libs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <OptimizationLevel>3</OptimizationLevel>
+    <OutputName>sdlpal</OutputName>
+    <CompileTarget>Bin</CompileTarget>
+    <ExtraLinkerArguments>`sdl-config --libs`</ExtraLinkerArguments>
+    <ExtraCompilerArguments>`sdl-config --cflags`</ExtraCompilerArguments>
+    <Libs>
+      <Libs>
+        <Lib>stdc++</Lib>
+      </Libs>
+    </Libs>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="ascii.h" />
+    <None Include="battle.h" />
+    <None Include="common.h" />
+    <None Include="ending.h" />
+    <None Include="fight.h" />
+    <None Include="font.h" />
+    <None Include="game.h" />
+    <None Include="getopt.h" />
+    <None Include="global.h" />
+    <None Include="input.h" />
+    <None Include="itemmenu.h" />
+    <None Include="magicmenu.h" />
+    <None Include="main.h" />
+    <None Include="map.h" />
+    <None Include="palcommon.h" />
+    <None Include="palette.h" />
+    <None Include="play.h" />
+    <None Include="res.h" />
+    <None Include="rixplay.h" />
+    <None Include="rngplay.h" />
+    <None Include="scene.h" />
+    <None Include="script.h" />
+    <None Include="sound.h" />
+    <None Include="text.h" />
+    <None Include="ui.h" />
+    <None Include="uibattle.h" />
+    <None Include="uigame.h" />
+    <None Include="util.h" />
+    <None Include="video.h" />
+    <None Include="adplug\binfile.h" />
+    <None Include="adplug\binio.h" />
+    <None Include="adplug\emuopl.h" />
+    <None Include="adplug\fmopl.h" />
+    <None Include="adplug\fprovide.h" />
+    <None Include="adplug\opl.h" />
+    <None Include="adplug\player.h" />
+    <None Include="adplug\rix.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="battle.c" />
+    <Compile Include="ending.c" />
+    <Compile Include="fight.c" />
+    <Compile Include="font.c" />
+    <Compile Include="game.c" />
+    <Compile Include="getopt.c" />
+    <Compile Include="global.c" />
+    <Compile Include="input.c" />
+    <Compile Include="itemmenu.c" />
+    <Compile Include="magicmenu.c" />
+    <Compile Include="main.c" />
+    <Compile Include="map.c" />
+    <Compile Include="palcommon.c" />
+    <Compile Include="palette.c" />
+    <Compile Include="play.c" />
+    <Compile Include="res.c" />
+    <Compile Include="rngplay.c" />
+    <Compile Include="scene.c" />
+    <Compile Include="script.c" />
+    <Compile Include="sound.c" />
+    <Compile Include="text.c" />
+    <Compile Include="ui.c" />
+    <Compile Include="uibattle.c" />
+    <Compile Include="uigame.c" />
+    <Compile Include="util.c" />
+    <Compile Include="video.c" />
+    <Compile Include="yj1.c" />
+    <Compile Include="adplug\fmopl.c" />
+    <Compile Include="rixplay.cpp" />
+    <Compile Include="adplug\binfile.cpp" />
+    <Compile Include="adplug\binio.cpp" />
+    <Compile Include="adplug\emuopl.cpp" />
+    <Compile Include="adplug\fprovide.cpp" />
+    <Compile Include="adplug\player.cpp" />
+    <Compile Include="adplug\rix.cpp" />
+  </ItemGroup>
+</Project>
