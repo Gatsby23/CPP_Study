@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,21 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/gatsby/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/src/glad.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-glad/glad.h
--
-windows.h
--
-dlfcn.h
--
-
-/usr/local/include/KHR/khrplatform.h
+../../include/KHR/khrplatform.h
 stdint.h
 -
 inttypes.h
@@ -28,7 +14,7 @@ inttypes.h
 stdint.h
 -
 
-/usr/local/include/glad/glad.h
+../../include/glad/glad.h
 windows.h
 -
 stddef.h
@@ -46,5 +32,19 @@ stdint.h
 stdint.h
 -
 inttypes.h
+-
+
+/home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/src/glad.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+glad/glad.h
+-
+windows.h
+-
+dlfcn.h
 -
 
