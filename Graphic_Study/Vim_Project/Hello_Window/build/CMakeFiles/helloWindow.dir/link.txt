@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11   CMakeFiles/helloWindow.dir/src/Hello_Window.cpp.o CMakeFiles/helloWindow.dir/src/glad.c.o  -o helloWindow -rdynamic -lglfw -lGLEW -lGLU -lGL -ldl 

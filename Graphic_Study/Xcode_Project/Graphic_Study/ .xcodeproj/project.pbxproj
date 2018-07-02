@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6308723720B58E7300239AFB /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6308723620B58E7300239AFB /* libGLEW.2.1.0.dylib */; };
-		6308723920B58E8E00239AFB /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6308723820B58E8E00239AFB /* libglfw.3.2.dylib */; };
-		6308723B20B5939400239AFB /* Triangle_Study.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6308723A20B5939400239AFB /* Triangle_Study.cpp */; };
 		6308723D20B5A42100239AFB /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 6308723C20B5A42100239AFB /* glad.c */; };
 		63805EFF2079B21700233704 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63805EFE2079B21700233704 /* main.cpp */; };
-		63805F072079B24100233704 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63805F062079B24100233704 /* OpenGL.framework */; };
-		63805F092079B25100233704 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63805F082079B25100233704 /* GLUT.framework */; };
+		63BEF73220D608300065F1ED /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63805F062079B24100233704 /* OpenGL.framework */; };
+		63BEF73320D608400065F1ED /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63805F082079B25100233704 /* GLUT.framework */; };
+		63BEF73420D608F30065F1ED /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6308723820B58E8E00239AFB /* libglfw.3.2.dylib */; };
+		63BEF73620D6091F0065F1ED /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BEF73520D6091F0065F1ED /* libGLEW.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,12 +30,14 @@
 /* Begin PBXFileReference section */
 		6308723620B58E7300239AFB /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		6308723820B58E8E00239AFB /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
-		6308723A20B5939400239AFB /* Triangle_Study.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle_Study.cpp; sourceTree = "<group>"; };
+		6308723A20B5939400239AFB /* Quad_Study.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Quad_Study.cpp; sourceTree = "<group>"; };
 		6308723C20B5A42100239AFB /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		63805EFB2079B21700233704 /* Graphic_Study */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Graphic_Study; sourceTree = BUILT_PRODUCTS_DIR; };
 		63805EFE2079B21700233704 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		63805F062079B24100233704 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		63805F082079B25100233704 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		63BEF73020D6067D0065F1ED /* Triangle_Study.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle_Study.cpp; sourceTree = "<group>"; };
+		63BEF73520D6091F0065F1ED /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,10 +45,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6308723920B58E8E00239AFB /* libglfw.3.2.dylib in Frameworks */,
-				6308723720B58E7300239AFB /* libGLEW.2.1.0.dylib in Frameworks */,
-				63805F092079B25100233704 /* GLUT.framework in Frameworks */,
-				63805F072079B24100233704 /* OpenGL.framework in Frameworks */,
+				63BEF73620D6091F0065F1ED /* libGLEW.a in Frameworks */,
+				63BEF73420D608F30065F1ED /* libglfw.3.2.dylib in Frameworks */,
+				63BEF73320D608400065F1ED /* GLUT.framework in Frameworks */,
+				63BEF73220D608300065F1ED /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +77,8 @@
 			children = (
 				6308723C20B5A42100239AFB /* glad.c */,
 				63805EFE2079B21700233704 /* main.cpp */,
-				6308723A20B5939400239AFB /* Triangle_Study.cpp */,
+				6308723A20B5939400239AFB /* Quad_Study.cpp */,
+				63BEF73020D6067D0065F1ED /* Triangle_Study.cpp */,
 			);
 			path = Graphic_Study;
 			sourceTree = "<group>";
@@ -84,6 +86,7 @@
 		63805F052079B24100233704 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63BEF73520D6091F0065F1ED /* libGLEW.a */,
 				6308723820B58E8E00239AFB /* libglfw.3.2.dylib */,
 				6308723620B58E7300239AFB /* libGLEW.2.1.0.dylib */,
 				63805F082079B25100233704 /* GLUT.framework */,
@@ -149,7 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				63805EFF2079B21700233704 /* main.cpp in Sources */,
-				6308723B20B5939400239AFB /* Triangle_Study.cpp in Sources */,
 				6308723D20B5A42100239AFB /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +279,7 @@
 					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-documentation";
 			};
 			name = Debug;
 		};
@@ -291,6 +294,8 @@
 					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-documentation";
+				"WARNING_CFLAGS[arch=*]" = "-Wno-documentation";
 			};
 			name = Release;
 		};

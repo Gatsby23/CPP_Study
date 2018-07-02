@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gatsby/CPP_Study/Algorithm_Analysis/Leetcode_Study/Sort/SortTestHelper.h
+ctime
+-
+cassert
+-
+
+/Users/gatsby/CPP_Study/Algorithm_Analysis/Leetcode_Study/Sort/Sort_Algorithm.h
+
+/Users/gatsby/CPP_Study/Algorithm_Analysis/Leetcode_Study/Sort/Sort_Test.cpp
+iostream
+-
+SortTestHelper.h
+/Users/gatsby/CPP_Study/Algorithm_Analysis/Leetcode_Study/Sort/SortTestHelper.h
+Sort_Algorithm.h
+/Users/gatsby/CPP_Study/Algorithm_Analysis/Leetcode_Study/Sort/Sort_Algorithm.h
+

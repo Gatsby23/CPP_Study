@@ -1,3 +1,0 @@
-/home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build/CMakeFiles/edit_cache.dir
-/home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build/CMakeFiles/rebuild_cache.dir
-/home/studentq/CPP_Study/Graphic_Study/Vim_Project/Hello_Window/build/CMakeFiles/helloWindow.dir
