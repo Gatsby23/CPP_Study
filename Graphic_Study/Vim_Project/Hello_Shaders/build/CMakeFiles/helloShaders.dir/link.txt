@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11   CMakeFiles/helloShaders.dir/src/hello_Shaders.cpp.o CMakeFiles/helloShaders.dir/src/glad.c.o  -o helloShaders -rdynamic -lglfw -ldl 
