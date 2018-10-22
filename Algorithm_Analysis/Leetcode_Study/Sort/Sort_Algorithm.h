@@ -73,4 +73,48 @@ namespace Sort_Algorithm{
 	void mergeSort(T arr[], int n){
 		__mergeSort(arr, 0, n-1);
 	}
+
+	template<typename T>
+	int __partion2(T arr[], int l, int r){
+		T value = arr[l];
+		int i = l+1, j = r;
+		while(true){
+			while(i <= r && arr[i] < v) i++;
+			while(j >= l+1 && arr[j] > v) j--;
+			if(l > j) break;
+			swap(arr[i], arr[j]);
+			i++;
+			j--;
+	}
+	swap(arr[l], arr[j]);
+	return j;
+
+	template<typename T>
+	int __partion(T arr[], int l, int r){
+		T value = arr[l];
+
+		int j = l;
+		for(int i = l+1; i <= r; i++){
+			if(arr[i] < v){
+				swap(arr[j+1], arr[i]);
+				j++;
+			}
+		}
+		swap(arr[l], arr[j]);
+		return j;
+	}
+
+	template<typename T>
+	void __quickSort(T arr[], int l, int r){
+		if(l >= r)
+			return;
+
+		int poisition = __partion(arr, int l, int r);
+		__quickSort(arr, l, partion-1);
+		__quickSort(arr, partion+1, n-1);
+	}
+	template<typename T>
+	void quickSort(T arr[], int n){
+		__quickSort(arr, 0, n-1);
+	}
 }
