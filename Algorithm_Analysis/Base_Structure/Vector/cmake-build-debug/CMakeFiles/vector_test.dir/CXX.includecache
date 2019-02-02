@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Vector.h
+iostream
+-
+vector
+-
+cstdlib
+-
+string
+-
+stdexcept
+-
+
+/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/vector_test.cc
+Vector.h
+/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/Vector.h
+iostream
+-
+

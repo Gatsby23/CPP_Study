@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Vector"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vector_test">
+				<Option output="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/vector_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add directory="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector"/>
+					<Add directory="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 vector_test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vector_test/fast">
+				<Option output="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/vector_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add directory="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector"/>
+					<Add directory="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 vector_test/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Vector">
+				<Option output="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/libVector.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add directory="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector"/>
+					<Add directory="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 Vector"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Vector/fast">
+				<Option output="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/libVector.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add directory="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector"/>
+					<Add directory="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 Vector/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/include/Vector.h">
+			<Option target="Vector"/>
+		</Unit>
+		<Unit filename="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/src/Vector.cpp">
+			<Option target="Vector"/>
+		</Unit>
+		<Unit filename="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/vector_test.cc">
+			<Option target="vector_test"/>
+		</Unit>
+		<Unit filename="/Users/gatsby/CPP_Study/Algorithm_Analysis/Base_Structure/Vector/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
